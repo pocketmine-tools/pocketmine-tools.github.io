@@ -2,10 +2,6 @@ import { deflate } from "./deflate.min.js";
 
 var crashdump = document.getElementById('exampleForm.ControlTextarea1').value;
 
-while (crashdump === "") {
-    // empty
-}
-
 crashdump = crashdump.replace("----------------------REPORT THE DATA BELOW THIS LINE-----------------------", "");
 crashdump = crashdump.replace("===BEGIN CRASH DUMP===", "");
 crashdump = crashdump.replace("===END CRASH DUMP===", "");
@@ -15,7 +11,7 @@ try {
     const deflatedZlib = deflate(decodedBase64);
     const jsonData = JSON.stringify(JSON.parse(deflatedZlib), null, 2);
 } catch (error) {
-    // empty catch block
+    console.error(error);
 }
 
 var label = document.createElement("Label");
