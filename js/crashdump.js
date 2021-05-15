@@ -1,4 +1,4 @@
-if (document.getElementById('exampleForm.ControlTextarea1').value != "") {
+document.getElementById('exampleForm.ControlTextarea1').onchange = function() {
     var crashdump = document.getElementById('exampleForm.ControlTextarea1').value;
 
     crashdump = crashdump.replace("----------------------REPORT THE DATA BELOW THIS LINE-----------------------", "");
