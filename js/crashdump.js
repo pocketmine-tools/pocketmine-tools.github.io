@@ -8,7 +8,7 @@ document.getElementById('exampleForm.ControlTextarea1').onchange = function() {
     try {
         const decodedBase64 = atob(crashdump);
         const deflatedZlib = pako.deflate(decodedBase64);
-        const jsonData = JSON.stringify(JSON.parse(deflatedZlib), null, 2);
+        const jsonData = JSON.stringify(JSON.parse(deflatedZlib.toString()), null, 2);
     } catch (error) {
         console.error(error);
     }
