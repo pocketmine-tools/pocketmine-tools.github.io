@@ -1,5 +1,3 @@
-import { deflate } from "./deflate.min.js";
-
 document.getElementById('exampleForm.ControlTextarea1').onkeypress = function() {
     var crashdump = document.getElementById('exampleForm.ControlTextarea1').value;
 
@@ -9,7 +7,7 @@ document.getElementById('exampleForm.ControlTextarea1').onkeypress = function() 
 
     try {
         const decodedBase64 = atob(crashdump);
-        const deflatedZlib = deflate(decodedBase64);
+        const deflatedZlib = pako.deflate(decodedBase64);
         const jsonData = JSON.stringify(JSON.parse(deflatedZlib), null, 2);
     } catch (error) {
         console.error(error);
