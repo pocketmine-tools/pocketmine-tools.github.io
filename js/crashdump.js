@@ -7,8 +7,10 @@ document.getElementById('exampleForm.ControlTextarea1').onchange = function() {
 
     try {
         const decodedBase64 = atob(crashdump);
-        const deflatedZlib = pako.deflate(decodedBase64);
-        const jsonData = JSON.stringify(JSON.parse(deflatedZlib.toString()), null, 2);
+        const inflatedZlib = pako.inflate(decodedBase64);
+        const decodedCrashdump = new encoding.TextDecoder('utf-8').decode(inflatedZlib);
+        let jsonData = JSON.parse(decodedCrashdump);
+        jsonData = JSON.stringify(jsonData, null, 2);
     } catch (error) {
         console.error(error);
     }
