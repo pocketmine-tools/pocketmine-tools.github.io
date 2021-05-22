@@ -13,7 +13,7 @@ document.getElementById('exampleForm.ControlTextarea1').onchange = function() {
     // }
     // const inflatedZlib = pako.inflate(bytes);
     const inflatedZlib = pako.inflate(new Uint8Array(decodedBase64), {"to":"string"});
-    const decodedCrashdump = new encoding.TextDecoder('utf-8').decode(inflatedZlib);
+    const decodedCrashdump = new TextDecoder('utf-8').decode(inflatedZlib);
     let jsonData = JSON.parse(decodedCrashdump);
     jsonData = JSON.stringify(jsonData, null, 2);
 
