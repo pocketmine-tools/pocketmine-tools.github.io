@@ -6,7 +6,7 @@ document.getElementById('exampleForm.ControlTextarea1').onchange = function() {
     crashdump = crashdump.replace("===END CRASH DUMP===", "");
 
     const decodedBase64 = atob(crashdump);
-    const deflatedZlib = zlib.deflate(JSON.stringify(decodedBase64));
+    const deflatedZlib = pako.deflate(JSON.stringify(decodedBase64));
     let jsonData = JSON.parse(JSON.stringify(deflatedZlib));
     jsonData = JSON.stringify(jsonData, null, 2);
 
