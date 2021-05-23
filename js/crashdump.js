@@ -13,7 +13,7 @@ document.getElementById('exampleForm.ControlTextarea1').onchange = function() {
     if (jsonData.length >= 1) {
         var label = document.createElement("Label");
         label.className = "form-label";
-        label.setAttributes("for", "exampleForm.ControlTextarea1");
+        label.setAttribute("for", "exampleForm.ControlTextarea1");
         label.innerHTML = "Parsed JSON";
 
         var textArea = document.createElement("TEXTAREA");
