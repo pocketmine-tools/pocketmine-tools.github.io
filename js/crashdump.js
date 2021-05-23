@@ -23,18 +23,31 @@ document.getElementById('exampleForm.ControlTextarea1').onchange = function() {
         textArea.className = "form-control";
         textArea.innerHTML = jsonData;
 
-        var element = document.createElement("div");
-        element.className = "form-group";
-        element.appendChild(label);
-        element.appendChild(textArea);
+        if (document.getElementsByClassName("form-group").length < 2) {
+            var element = document.createElement("div");
+            element.className = "form-group";
+            element.appendChild(label);
+            element.appendChild(textArea);
+        } else {
+            var element = document.getElementsByClassName("form-group")[1];
+            element.innerHTML = "";
+            element.appendChild(label);
+            element.appendChild(textArea);
+        }
 
-        var button = document.createElement("BUTTON");
-        button.type = "button";
-        button.className = "btn btn-secondary";
-        button.innerHTML = "Download";
+        if (document.getElementsByClassName("btn btn-secondary").length == 0) {
+            var button = document.createElement("BUTTON");
+            button.type = "button";
+            button.className = "btn btn-secondary";
+            button.innerHTML = "Download";
+        }
 
         var group = document.getElementsByClassName("tab-content")[0];
-        group.appendChild(element);
-        group.appendChild(button);
+        if (document.getElementsByClassName("form-group").length < 2) {
+            group.appendChild(element);
+        }
+        if (document.getElementsByClassName("btn btn-secondary").length == 0) {
+            group.appendChild(button);
+        }
     }
 }
