@@ -23,8 +23,7 @@ document.getElementById('exampleForm.ControlTextarea1').onchange = function() {
         textArea.className = "form-control";
         textArea.innerHTML = jsonData;
 
-        var element = document.createElement("div");
-        element.className = "form-group";
+        var element = document.getElementsByClassName("form-group");
         element.appendChild(label);
         element.appendChild(textArea);
 
@@ -34,7 +33,6 @@ document.getElementById('exampleForm.ControlTextarea1').onchange = function() {
         button.innerHTML = "Download";
 
         var group = document.getElementsByClassName("tab-content");
-        group.appendChild(element);
         group.appendChild(button);
     }
 }
