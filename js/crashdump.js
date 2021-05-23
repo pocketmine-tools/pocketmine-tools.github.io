@@ -5,9 +5,13 @@ document.getElementById('exampleForm.ControlTextarea1').onchange = function() {
     crashdump = crashdump.replace("===BEGIN CRASH DUMP===", "");
     crashdump = crashdump.replace("===END CRASH DUMP===", "");
 
-    // const decodedBase64 = atob(crashdump);
-    const deflatedZlib = pako.deflate(crashdump);
-    let jsonData = JSON.parse(JSON.stringify(deflatedZlib));
+    const decodedBase64 = atob(crashdump);
+    const data = decodedBase64.split("").map(function(x) {
+        return x.charCodeAt(0);
+    });
+    const binaryData = new Uint8Array(data);
+    const inflatedData = pako.inflate(binaryData);
+    let jsonData = JSON.parse(JSON.stringify(inflatedData));
     jsonData = JSON.stringify(jsonData, null, 2);
 
     if (jsonData.length >= 1) {
