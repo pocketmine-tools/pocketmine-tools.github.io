@@ -33,7 +33,7 @@ document.getElementById('exampleForm.ControlTextarea1').onchange = function() {
         button.className = "btn btn-secondary";
         button.innerHTML = "Download";
 
-        var group = document.getElementByClassName("tab-content");
+        var group = document.getElementsByClassName("tab-content");
         group.appendChild(element);
         group.appendChild(button);
     }
