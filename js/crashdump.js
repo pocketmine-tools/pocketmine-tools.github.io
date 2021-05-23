@@ -25,8 +25,8 @@ document.getElementById('exampleForm.ControlTextarea1').onchange = function() {
 
         var element = document.createElement("div");
         element.className = "form-group";
-        element.addChild(label);
-        element.addChild(textArea);
+        element.appendChild(label);
+        element.appendChild(textArea);
 
         var button = document.createElement("BUTTON");
         button.type = "button";
@@ -34,7 +34,7 @@ document.getElementById('exampleForm.ControlTextarea1').onchange = function() {
         button.innerHTML = "Download";
 
         var group = document.getElementByClassName("tab-content");
-        group.addChild(element);
-        group.addChild(button);
+        group.appendChild(element);
+        group.appendChild(button);
     }
 }
