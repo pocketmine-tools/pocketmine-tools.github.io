@@ -25,7 +25,7 @@ document.getElementById('exampleForm.ControlTextarea1').onchange = function() {
         textArea.disabled = true;
         textArea.id = "exampleForm.ControlTextarea1";
         textArea.className = "form-control";
-        textArea.innerHTML = jsonData;
+        textArea.textContent = jsonData;
 
         if (document.getElementsByClassName("form-group").length < 2) {
             var element = document.createElement("div");
