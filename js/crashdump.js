@@ -10,9 +10,10 @@ document.getElementById('exampleForm.ControlTextarea1').onchange = function() {
         return x.charCodeAt(0);
     });
     const binaryData = new Uint8Array(data);
-    const inflatedData = pako.inflate(binaryData, {to:"string"});
-    let jsonData = JSON.parse(JSON.stringify(inflatedData));
-    jsonData = JSON.stringify(jsonData, null, 2);
+    const inflatedData = pako.inflate(binaryData);
+    var jsonData = String.fromCharCode.apply(null, Uint16Array(inflatedData));
+    // let jsonData = JSON.parse(JSON.stringify(inflatedData));
+    // jsonData = JSON.stringify(jsonData, null, 2);
 
     if (jsonData.length >= 1) {
         var label = document.createElement("Label");
