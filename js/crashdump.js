@@ -12,8 +12,7 @@ document.getElementById('exampleForm.ControlTextarea1').onchange = function() {
     const binaryData = new Uint8Array(data);
     const inflatedData = pako.inflate(binaryData);
     var jsonData = String.fromCharCode.apply(null, new Uint16Array(inflatedData));
-    // let jsonData = JSON.parse(JSON.stringify(inflatedData));
-    // jsonData = JSON.stringify(jsonData, null, 2);
+    jsonData = JSON.stringify(jsonData, null, 2);
 
     if (jsonData.length >= 1) {
         var label = document.createElement("Label");
