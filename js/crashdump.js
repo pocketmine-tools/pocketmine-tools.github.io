@@ -46,7 +46,7 @@ document.getElementById('exampleForm.ControlTextarea1').onchange = function() {
             button.className = "btn btn-secondary";
             button.innerHTML = "Download";
             button.onclick = function() {
-                const blob = new Blob(jsonData, {type: "application/json;charset=utf-8"});
+                const blob = new Blob([jsonData], {type: "application/json;charset=utf-8"});
                 saveAs(blob, "crashdump.json");
             }
         }
