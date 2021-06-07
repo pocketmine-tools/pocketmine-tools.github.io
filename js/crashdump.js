@@ -45,6 +45,9 @@ document.getElementById('exampleForm.ControlTextarea1').onchange = function() {
             button.type = "button";
             button.className = "btn btn-secondary";
             button.innerHTML = "Download";
+            button.onclick = function() {
+                saveAs(new Blob(jsonData, {type: "application/json;charset=utf-8"}));
+            }
         }
 
         var group = document.getElementsByClassName("tab-content")[0];
