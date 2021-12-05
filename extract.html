@@ -1,6 +1,6 @@
 <html>
     <head>
-        <title>Crashdump Parser | PocketMine-MP Tools</title>
+        <title>PocketMine-MP Tools</title>
         <link href="css/index.css" rel="stylesheet" type="text/css">
     </head>
     <body>
@@ -27,14 +27,19 @@
         </div>
         <div class="mb-3 col-md-9">
             <div class="tab-content">
-                <div class="form-group">
-                    <label class="form-label" for="exampleForm.ControlTextarea1">Crashdump</label>
-                    <textarea rows="3" id="exampleForm.ControlTextarea1" class="form-control"></textarea>
-                </div>
+                <form id="extract-phar">
+                    <label class="form-label">Plugin</label>
+                    <div class="mb-3 input-group">
+                        <div class="custom-file">
+                            <input accept=".phar" type="file" class="custom-file-input form-control-file" onChange="file=this">
+                            <label class="custom-file-label form-label" style="color: rgb(116, 124, 132);">No phar selected</label>
+                        </div>
+                    </div>
+                    <button disabled="" type="submit" class="btn btn-secondary">Extract</button>
+                </form>
             </div>
         </div>
-        <script type="text/javascript" src="js/pako.js"></script>
-        <script type="text/javascript" src="js/FileSaver.js"></script>
-        <script type="text/javascript" src="js/crashdump.js"></script>
+        <script type="text/javascript" src="js/phar.js"></script>
+        <script type="text/javascript" src="js/extract.js"></script>
     </body>
 </html>
