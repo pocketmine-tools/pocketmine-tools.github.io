@@ -1,5 +1,10 @@
 var file;
 
+document.getElementById('extract-phar').onsubmit = function(event) {
+    event.preventDefault();
+    processFile(file);
+}
+
 function showElements() {
     for (var i = 0; i < arguments.length; i++) {
         document.getElementById(arguments[i]).style.display = 'block';
